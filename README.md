@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/styleseek/appfigures.svg?branch=gem-setup)](https://travis-ci.org/styleseek/appfigures)
 
+Simple Ruby client for tracking mobile applications with AppFigures.com's api.
+
 ## Installation
 
 Add this line to your application's Gemfile:
