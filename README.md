@@ -20,7 +20,7 @@ Or install it yourself as:
 
 proposed syntax
 ```ruby
-appfigures = Appfigures.configure do |config|
+appfigures = Appfigures.configure do |config| #returns instance of client class
   config.api_version = '2.0'
   config.auth_stratgy = 'Basic'
   config.client_key = 'your client key'
