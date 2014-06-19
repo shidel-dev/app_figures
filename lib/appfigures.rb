@@ -1,5 +1,10 @@
-require "appfigures/version"
+require 'appfigures/version'
+require 'appfigures/client'
 
 module Appfigures
-  # Your code goes here...
+  def self.new
+    client = self::Client.new
+    yield client
+    client
+  end
 end
