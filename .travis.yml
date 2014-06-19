@@ -1,0 +1,10 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.1.1
+  - 1.9.3
+  - jruby-head
+  - rbx-2
+matrix:
+  allow_failures:
+    - rvm: rbx-2

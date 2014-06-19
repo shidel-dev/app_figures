@@ -1,6 +1,8 @@
 # Appfigures
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/styleseek/appfigures.svg?branch=gem-setup)](https://travis-ci.org/styleseek/appfigures)
+
+Simple Ruby client for tracking mobile applications with AppFigures.com's api.
 
 ## Installation
 
@@ -17,6 +19,16 @@ Or install it yourself as:
     $ gem install appfigures
 
 ## Usage
+
+proposed syntax
+```ruby
+appfigures = Appfigures.configure do |config| #Alias for Appfigures::Client.new
+  config.client_key = 'your client key'
+  config.credentials = 'base 64 encoded username:password'
+end
+
+appfigures.sales(start_date: '2014-01-01', end_date: '2015-01-01')
+```
 
 TODO: Write usage instructions here
 
