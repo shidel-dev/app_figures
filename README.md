@@ -27,7 +27,7 @@ appfigures = Appfigures.configure do |config| #returns instance of client class
   config.credentials = 'base 64 encoded username:password'
 end
 
-appfigures.sales(start_date: '2014-01-01', end_date: '2014-01-01')
+appfigures.sales(start_date: '2014-01-01', end_date: '2015-01-01')
 ```
 
 TODO: Write usage instructions here
