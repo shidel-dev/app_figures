@@ -20,7 +20,7 @@ Or install it yourself as:
 
 proposed syntax
 ```ruby
-appfigures = Appfigures.new do |config| #Alias for Appfigures::Client.new
+appfigures = Appfigures.configure do |config| #Alias for Appfigures::Client.new
   config.client_key = 'your client key'
   config.credentials = 'base 64 encoded username:password'
 end

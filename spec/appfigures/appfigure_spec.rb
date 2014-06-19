@@ -6,14 +6,14 @@ describe Appfigures do
   context '.new' do
 
     before do
-      @appfigures = Appfigures.new do |config|
+      @appfigures = Appfigures.configure do |config|
         config.client_key = 'your client key'
         config.credentials = 'base 64 encoded username:password'
       end
     end
 
     it 'yields Appfigures::Client for configuration' do
-      Appfigures.new do |config|
+      Appfigures.configure do |config|
         config.must_be_instance_of Appfigures::Client
       end
     end
