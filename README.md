@@ -1,6 +1,6 @@
 # Appfigures
 
-TODO: Write a gem description
+[![Build Status](https://travis-ci.org/styleseek/appfigures.svg?branch=gem-setup)](https://travis-ci.org/styleseek/appfigures)
 
 ## Installation
 
