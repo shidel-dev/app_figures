@@ -6,7 +6,7 @@ require 'appfigures/version'
 Gem::Specification.new do |spec|
   spec.name          = "appfigures"
   spec.version       = Appfigures::VERSION
-  spec.authors       = ["Shidel"]
+  spec.authors       = ['StyleSeek Engineering']
   spec.email         = ["joe@mytastebud.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
