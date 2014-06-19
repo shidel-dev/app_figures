@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['StyleSeek Engineering']
   spec.email         = ['engineering@styleseek.com']
   spec.summary       = %q{Simple API Client for AppFigures.com}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Simple Ruby client for tracking mobile applications with AppFigures.com's api.}
   spec.homepage      = "https://github.com/styleseek/appfigures"
   spec.license       = "MIT"
 
