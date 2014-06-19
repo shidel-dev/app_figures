@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "appfigures"
   spec.version       = Appfigures::VERSION
   spec.authors       = ['StyleSeek Engineering']
-  spec.email         = ["joe@mytastebud.com"]
+  spec.email         = ['engineering@styleseek.com']
   spec.summary       = %q{TODO: Write a short summary. Required.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
