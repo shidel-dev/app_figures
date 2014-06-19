@@ -18,6 +18,18 @@ Or install it yourself as:
 
 ## Usage
 
+proposed syntax
+```ruby
+appfigures = Appfigures::Client.new do |config|
+  config.api_version = '2.0'
+  config.auth_stratgy = 'Basic'
+  config.client_key = 'your client key'
+  config.credentials = 'base 64 encoded username:password'
+end
+
+appfigures.sales(start_date: '2014-01-01', end_date: '2014-01-01')
+```
+
 TODO: Write usage instructions here
 
 ## Contributing
