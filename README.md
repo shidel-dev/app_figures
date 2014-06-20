@@ -29,6 +29,7 @@ This is the preferred method as it keeps your config details in a private file. 
 ```ruby
 AppFigures.create_client
 ```
+This method will return a client object
 
 ####Configure block
 
@@ -37,7 +38,10 @@ client = AppFigures.configure do |config|
   config.client_key = 'your client key'
   config.credentials = 'base 64 encoded username:password'
 end
+
 ```
+
+This method will return a client object
 
 ####Using AppFigures::Client's initialize method directly
 
