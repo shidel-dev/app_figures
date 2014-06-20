@@ -21,15 +21,15 @@ Or install it yourself as:
 ## Usage
 ###configuration
 
-Your authentication information can be configured in three different ways
+Your authentication information can be configured in three different ways.
 
 ####ENV variables
-This is the preferred method as it keeps your config details in a private file. When using this method you can use a shortcut for creating a new client
+This is the preferred method as it keeps your config details in a private file. When using this method you can use a shortcut for creating a new client.
 
 ```ruby
 AppFigures.create_client
 ```
-This method will return a client object
+This method will return a client object.
 
 ####Configure block
 
@@ -41,17 +41,15 @@ end
 
 ```
 
-This method will return a client object
+This method will return a client object.
 
-####Using AppFigures::Client's initialize method directly
+####Using AppFigures::Client initialize method directly
 
-this can take an options hash
+This can take an options hash with your authentication information.
 
 ```ruby
 AppFigures::Client.new({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
 ```
-
-TODO: Write usage instructions here
 
 ## Contributing
 
