@@ -14,6 +14,8 @@ describe AppFigures do
 
     it 'passes block to Appfigures::Client for configuration' do
       AppFigures.configure do |config|
+        config.client_key = 'your client key'
+        config.credentials = 'base 64 encoded username:password'
         config.must_be_instance_of AppFigures::Client
       end
     end
