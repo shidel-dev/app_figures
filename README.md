@@ -33,18 +33,18 @@ AppFigures.create_client
 ####Configure block
 
 ```ruby
-client = Appfigures.configure do |config| #Alias for Appfigures::Client.new
+client = AppFigures.configure do |config| #Alias for AppFigures::Client.new
   config.client_key = 'your client key'
   config.credentials = 'base 64 encoded username:password'
 end
 ```
 
-####using Appfigures::Client's initialize method directly
+####Using AppFigures::Client's initialize method directly
 
 this can take an options has
 
 ```ruby
-Appfigures::Client.new({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
+AppFigures::Client.new({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
 ```
 
 TODO: Write usage instructions here
