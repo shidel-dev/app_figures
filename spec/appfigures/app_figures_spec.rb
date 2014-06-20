@@ -28,4 +28,16 @@ describe AppFigures do
       @appfigures.credentials.must_equal 'base 64 encoded username:password'
     end
   end
+
+  context '.create_client' do
+    it 'inits a new client object with ENV vars' do
+      ENV['client_key'] = 'abcd'
+      ENV['credentials'] = '1234'
+
+      AppFigures.create_client.must_be_instance_of AppFigures::Client
+
+      ENV.delete('client_key')
+      ENV.delete('credentials')
+    end
+  end
 end
