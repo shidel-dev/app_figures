@@ -1,6 +1,7 @@
 # Appfigures
 
 [![Build Status](https://travis-ci.org/styleseek/appfigures.svg?branch=gem-setup)](https://travis-ci.org/styleseek/appfigures)
+[![Code Climate](https://codeclimate.com/github/styleseek/appfigures.png)](https://codeclimate.com/github/styleseek/appfigures)
 
 Simple Ruby client for tracking mobile applications with AppFigures.com's api.
 
