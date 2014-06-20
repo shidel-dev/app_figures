@@ -5,11 +5,11 @@ require 'spec_helper'
 describe AppFigures::Client do
   context '.sales' do
     before do
-      @client = AppFigures::Client.new({client_key: 'my client key', credentials: "my credentials"})
+      @client = AppFigures::Client.new({client_key: 'ccfihtger13jfhels', credentials: 'Basic YSHFH123HTJDOF=='})
 
-      HTTParty.expects(:get)
-      .with('https://api.appfigures.com/v2/sales',
-        headers: {'X-Client-Key' => '!@#$abc','Authorization' => 'Basic @fju123%&jkds'})
+      @client.class.expects(:get)
+      .with('/v2/sales',
+        headers: {'X-Client-Key' => @client.client_key, 'Authorization' => @client.credentials})
       .returns({"downloads"=>1000,
                 "updates"=>2000,
                 "returns"=>0,
@@ -23,7 +23,7 @@ describe AppFigures::Client do
     end
 
 
-    it 'uses HTTParty::get and gets a result' do
+    it 'uses HTTParty::get' do
       @client.sales().must_equal({"downloads"=>1000,
                 "updates"=>2000,
                 "returns"=>0,
