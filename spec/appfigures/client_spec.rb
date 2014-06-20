@@ -36,6 +36,6 @@ describe AppFigures::Client do
   it 'has a base url for appfigures' do
     client = AppFigures::Client.new({client_key: 'my client key', credentials: "my credentials"})
 
-    client.class.base_uri.must_equal 'https://api.appfigures.com/v2'
+    client.class.base_uri.must_equal 'https://api.appfigures.com'
   end
 end
