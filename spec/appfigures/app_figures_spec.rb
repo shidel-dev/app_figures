@@ -12,7 +12,7 @@ describe AppFigures do
       end
     end
 
-    it 'yields Appfigures::Client for configuration' do
+    it 'passes block to Appfigures::Client for configuration' do
       AppFigures.configure do |config|
         config.must_be_instance_of AppFigures::Client
       end
