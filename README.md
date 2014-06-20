@@ -19,15 +19,32 @@ Or install it yourself as:
     $ gem install appfigures
 
 ## Usage
+###configuration
 
-proposed syntax
+Your authentication information can be configured in three different ways
+
+####ENV variables
+This is the preferred method as it keeps your config details in a private file. When using the method you can use a sortcut for creating a new client
+
 ```ruby
-appfigures = Appfigures.configure do |config| #Alias for Appfigures::Client.new
+AppFigures.create_client
+```
+
+####Configure block
+
+```ruby
+client = Appfigures.configure do |config| #Alias for Appfigures::Client.new
   config.client_key = 'your client key'
   config.credentials = 'base 64 encoded username:password'
 end
+```
 
-appfigures.sales(start_date: '2014-01-01', end_date: '2015-01-01')
+####using Appfigures::Client's initialize method directly
+
+this can take an options has
+
+```ruby
+Appfigures::Client.new({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
 ```
 
 TODO: Write usage instructions here
