@@ -14,9 +14,18 @@ describe AppFigures::Client do
     it 'defualts to env vars if no block or options hash given' do
       ENV['client_key'] = 'abcd'
       ENV['credentials'] = '1234'
+
       client = AppFigures::Client.new()
+
       client.client_key.wont_be_nil
       client.credentials.wont_be_nil
+
+      ENV.delete('client_key')
+      ENV.delete('credentials')
+    end
+
+    it 'throws error if credentials or client key is nil' do
+      Proc.new{AppFigures::Client.new()}.must_raise ArgumentError
     end
   end
 end
