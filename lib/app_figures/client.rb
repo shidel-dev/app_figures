@@ -8,7 +8,7 @@ module AppFigures
     attr_accessor :client_key, :credentials
 
     def initialize(options = {})
-
+      options ||= {}
       options = default_options.merge(options)
 
       @client_key = options[:client_key]

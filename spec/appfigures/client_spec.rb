@@ -11,8 +11,8 @@ describe AppFigures::Client do
     end
 
     after do
-      ENV.delete('client_key')
-      ENV.delete('credentials')
+      ENV.delete('APPFIGURES_CLIENT_KEY')
+      ENV.delete('APPFIGURES_CREDENTIALS')
     end
 
     it 'takes an option hash' do
