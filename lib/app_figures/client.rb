@@ -18,10 +18,14 @@ module AppFigures
     end
 
     def sales(query = {})
-      options = {headers: {'X-Client-Key' => @client_key, 'Authorization' => @credentials}}
-      options = options.merge({query: query}) unless query.empty?
+      options = headers
+      options = headers.merge({ query: query }) unless query.empty?
 
       self.class.get('/sales', options)
+    end
+
+    def product_by_id(id)
+      self.class.get("/products/#{id}", headers)
     end
 
     private
@@ -30,6 +34,15 @@ module AppFigures
       {
         client_key: ENV['APPFIGURES_CLIENT_KEY'],
         credentials: ENV['APPFIGURES_CREDENTIALS']
+      }
+    end
+
+    def headers
+      {
+        headers: {
+          'X-Client-Key' => @client_key,
+          'Authorization' => @credentials
+        }
       }
     end
 
