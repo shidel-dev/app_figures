@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+require 'httparty'
 require 'app_figures/version'
 require 'app_figures/client'
 
