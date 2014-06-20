@@ -1,9 +1,9 @@
 # encoding: utf-8
-
+require 'pry'
 module AppFigures
   class Client
     include HTTParty
-    base_uri 'https://api.appfigures.com/v2'
+    base_uri 'https://api.appfigures.com'
 
     attr_accessor :client_key, :credentials
 
@@ -17,6 +17,10 @@ module AppFigures
       end
 
       raise(ArgumentError) unless valid_client?
+    end
+
+    def sales
+      self.class.get('/v2/sales', headers: {'X-Client-Key' => @client_key, 'Authorization' => @credentials})
     end
 
     private
