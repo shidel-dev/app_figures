@@ -24,7 +24,7 @@ Or install it yourself as:
 Your authentication information can be configured in three different ways
 
 ####ENV variables
-This is the preferred method as it keeps your config details in a private file. When using the method you can use a sortcut for creating a new client
+This is the preferred method as it keeps your config details in a private file. When using this method you can use a shortcut for creating a new client
 
 ```ruby
 AppFigures.create_client
