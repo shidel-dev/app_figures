@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['StyleSeek Engineering']
   spec.email         = ['engineering@styleseek.com']
   spec.summary       = %q{Simple API Client for AppFigures.com}
-  spec.description   = %q{Simple Ruby client for tracking mobile applications with AppFigures.com's api.}
-  spec.homepage      = "https://github.com/styleseek/appfigures"
+  spec.description   = %q{Simple API Client for AppFigures.com, supports pulling in products and sales from AppFigures with Basic Auth.}
+  spec.homepage      = "https://github.com/styleseek/app_figures"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
