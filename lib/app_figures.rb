@@ -4,10 +4,6 @@ require 'app_figures/version'
 require 'app_figures/client'
 
 module AppFigures
-  def self.configure(&block)
-    Client.new({}, &block)
-  end
-
   def self.client(options = {})
     Client.new(options)
   end

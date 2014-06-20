@@ -8,13 +8,8 @@ module AppFigures
     attr_accessor :client_key, :credentials
 
     def initialize(options = {})
-
-      if block_given?
-        yield self
-      else
-        @client_key = options[:client_key] || ENV['client_key']
-        @credentials = options[:credentials] || ENV['credentials']
-      end
+      @client_key = options[:client_key] || ENV['client_key']
+      @credentials = options[:credentials] || ENV['credentials']
 
       raise(ArgumentError) unless valid_client?
     end
