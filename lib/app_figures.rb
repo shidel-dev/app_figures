@@ -7,4 +7,8 @@ module AppFigures
   def self.configure(&block)
     Client.new({}, &block)
   end
+
+  def self.create_client
+    Client.new
+  end
 end
