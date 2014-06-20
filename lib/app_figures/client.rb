@@ -6,7 +6,7 @@ module AppFigures
     base_uri 'https://api.appfigures.com/v2'
 
     attr_reader :client_key, :credentials
-    
+
     def initialize(options = {})
       options ||= {}
       options = default_options.merge(options)
@@ -24,11 +24,11 @@ module AppFigures
     private
 
     def authorization_headers
-      { 
+      {
         'X-Client-Key' => client_key,
         'Authorization' => "Basic #{credentials}"
       }
-    end    
+    end
 
     def default_options
       {
