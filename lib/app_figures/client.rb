@@ -2,6 +2,7 @@
 
 module AppFigures
   class Client
+    include HTTParty
     attr_accessor :client_key, :credentials
 
     def initialize(options = {}, &block)
