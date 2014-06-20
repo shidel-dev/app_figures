@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe AppFigures do
-  context '.new' do
+  context '.configure' do
 
     before do
       @appfigures = AppFigures.configure do |config|
