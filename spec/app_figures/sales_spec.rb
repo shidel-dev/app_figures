@@ -5,7 +5,7 @@ require 'spec_helper'
 describe AppFigures::Client do
   context '.sales' do
     before do
-      @basic_client = AppFigures::Client.new({client_key: 'ccfihtger13jfhels', credentials: 'Basic YSHFH123HTJDOF=='})
+      @basic_client = AppFigures::Client.new({client_key: 'exampleclientkey', credentials: 'Basic examplebase64encodedstring'})
 
       @basic_client.class.expects(:get)
         .with('/sales',
@@ -22,7 +22,7 @@ describe AppFigures::Client do
           "gift_redemptions"=>0
         })
 
-      @query_client = AppFigures::Client.new({client_key: 'ccfihtger13jfhels', credentials: 'Basic YSHFH123HTJDOF=='})
+      @query_client = AppFigures::Client.new({client_key: 'exampleclientkey', credentials: 'Basic examplebase64encodedstring'})
 
       @query_client.class.expects(:get)
         .with('/sales',
