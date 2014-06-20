@@ -5,8 +5,8 @@ module AppFigures
     include HTTParty
     base_uri 'https://api.appfigures.com/v2'
 
-    attr_accessor :client_key, :credentials
-
+    attr_reader :client_key, :credentials
+    
     def initialize(options = {})
       options ||= {}
       options = default_options.merge(options)
@@ -14,28 +14,32 @@ module AppFigures
       @client_key = options[:client_key]
       @credentials = options[:credentials]
 
-      raise(ArgumentError) unless valid_client?
+      check_configuration!
     end
 
     def sales(query = {})
-      options = {headers: {'X-Client-Key' => @client_key, 'Authorization' => @credentials}}
-      options = options.merge({query: query}) unless query.empty?
-
-      self.class.get('/sales', options)
+      self.class.get('/sales', query: query, headers: authorization_headers)
     end
 
     private
 
+    def authorization_headers
+      { 
+        'X-Client-Key' => client_key,
+        'Authorization' => "Basic #{credentials}"
+      }
+    end    
+
     def default_options
       {
-        client_key: ENV['APPFIGURES_CLIENT_KEY'],
+        client_key:  ENV['APPFIGURES_CLIENT_KEY'],
         credentials: ENV['APPFIGURES_CREDENTIALS']
       }
     end
 
-    def valid_client?
-      @client_key.nil? == false && @credentials.nil? == false
+    def check_configuration!
+      raise ArgumentError, 'client_key is required.' if client_key.nil? or client_key == ''
+      raise ArgumentError, 'credentials is required.' if credentials.nil? or credentials == ''
     end
-
   end
 end
