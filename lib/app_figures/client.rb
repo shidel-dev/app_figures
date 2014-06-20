@@ -8,8 +8,8 @@ module AppFigures
       if block_given?
         block.call(self)
       else
-        @client_key = options[:client_key]
-        @credentials = options[:credentials]
+        @client_key = options[:client_key] || ENV['client_key']
+        @credentials = options[:credentials] || ENV['credentials']
       end
     end
   end
