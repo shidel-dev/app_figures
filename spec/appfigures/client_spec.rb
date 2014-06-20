@@ -3,11 +3,6 @@
 require 'spec_helper'
 
 describe AppFigures::Client do
-
-  it 'includes httparty' do
-    AppFigures::Client.included_modules.must_include HTTParty
-  end
-
   context '.new' do
 
     it 'takes an option hash' do
@@ -32,5 +27,15 @@ describe AppFigures::Client do
     it 'throws error if credentials or client key is nil' do
       Proc.new{AppFigures::Client.new()}.must_raise ArgumentError
     end
+  end
+
+  it 'includes httparty' do
+    AppFigures::Client.included_modules.must_include HTTParty
+  end
+
+  it 'has a base url for appfigures' do
+    client = AppFigures::Client.new({client_key: 'my client key', credentials: "my credentials"})
+
+    client.class.base_uri.must_equal 'https://api.appfigures.com/v2'
   end
 end
