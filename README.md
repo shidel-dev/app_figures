@@ -27,10 +27,10 @@ Your authentication information can be configured in two different ways.
 ####ENV variables
 This is the preferred method as it keeps your config details in a private file.
 
-two ENV vars are needed
-'APPFIGURES_CLIENT_KEY' -- your client key
-'APPFIGURES_CREDENTIALS' -- base 64 encoded username:password prefixed with Basic.
-Example: ENV['APPFIGURES_CREDENTIALS'] = 'Basic j28fhj93nvbd9ab=='
+Two ENV vars are needed:  
+'APPFIGURES_CLIENT_KEY' -- your client key   
+'APPFIGURES_CREDENTIALS' -- base 64 encoded username:password prefixed with Basic.   
+Example: ENV['APPFIGURES_CREDENTIALS'] = 'Basic j28fhj93nvbd9ab=='    
 
 ```ruby
 AppFigures.create_client
