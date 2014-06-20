@@ -3,7 +3,7 @@
 module AppFigures
   class Client
     include HTTParty
-    base_uri 'https://api.appfigures.com'
+    base_uri 'https://api.appfigures.com/v2'
 
     attr_accessor :client_key, :credentials
 
@@ -21,7 +21,7 @@ module AppFigures
       options = {headers: {'X-Client-Key' => @client_key, 'Authorization' => @credentials}}
       options = options.merge({query: query}) unless query.empty?
 
-      self.class.get('/v2/sales', options)
+      self.class.get('/sales', options)
     end
 
     private

@@ -8,7 +8,7 @@ describe AppFigures::Client do
       @basic_client = AppFigures::Client.new({client_key: 'ccfihtger13jfhels', credentials: 'Basic YSHFH123HTJDOF=='})
 
       @basic_client.class.expects(:get)
-        .with('/v2/sales',
+        .with('/sales',
           {headers: {'X-Client-Key' => @basic_client.client_key, 'Authorization' => @basic_client.credentials}})
         .returns({
           "downloads"=>1000,
@@ -25,7 +25,7 @@ describe AppFigures::Client do
       @query_client = AppFigures::Client.new({client_key: 'ccfihtger13jfhels', credentials: 'Basic YSHFH123HTJDOF=='})
 
       @query_client.class.expects(:get)
-        .with('/v2/sales',
+        .with('/sales',
           {headers: {'X-Client-Key' => @query_client.client_key, 'Authorization' => @query_client.credentials}, query: {start_date: '2014-01-01'}})
         .returns({
           "downloads"=>3000,
