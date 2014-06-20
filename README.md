@@ -33,7 +33,7 @@ AppFigures.create_client
 ####Configure block
 
 ```ruby
-client = AppFigures.configure do |config| #Alias for AppFigures::Client.new
+client = AppFigures.configure do |config|
   config.client_key = 'your client key'
   config.credentials = 'base 64 encoded username:password'
 end
