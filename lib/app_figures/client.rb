@@ -3,6 +3,8 @@
 module AppFigures
   class Client
     include HTTParty
+    base_uri 'https://api.appfigures.com/v2'
+
     attr_accessor :client_key, :credentials
 
     def initialize(options = {}, &block)
