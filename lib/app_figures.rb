@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'app_figures/version'
 require 'app_figures/client'
 
