@@ -16,7 +16,7 @@ describe AppFigures::Client do
       client.credentials.wont_be_nil
     end
 
-    it 'defualts to env vars if no block or options hash given' do
+    it 'defualts to env vars if no block or options hash is given' do
 
       client = AppFigures::Client.new()
 
