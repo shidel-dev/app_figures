@@ -1,10 +1,10 @@
+# encoding: utf-8
+require 'httparty'
 require 'app_figures/version'
 require 'app_figures/client'
 
 module AppFigures
-  def self.configure
-    client = Client.new
-    yield client
-    client
+  def self.client(options = {})
+    Client.new(options)
   end
 end
