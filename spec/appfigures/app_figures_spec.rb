@@ -21,8 +21,8 @@ describe AppFigures do
 
   context '.client with env vars' do
     before do
-      ENV['client_key'] = 'abcd'
-      ENV['credentials'] = '1234'
+        ENV['APPFIGURES_CLIENT_KEY'] = 'abc'
+        ENV['APPFIGURES_CREDENTIALS'] = '123'
     end
 
     after do

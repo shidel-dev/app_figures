@@ -8,8 +8,11 @@ module AppFigures
     attr_accessor :client_key, :credentials
 
     def initialize(options = {})
-      @client_key = options[:client_key] || ENV['client_key']
-      @credentials = options[:credentials] || ENV['credentials']
+
+      options = default_options.merge(options)
+
+      @client_key = options[:client_key]
+      @credentials = options[:credentials]
 
       raise(ArgumentError) unless valid_client?
     end
@@ -22,6 +25,13 @@ module AppFigures
     end
 
     private
+
+    def default_options
+      {
+        client_key: ENV['APPFIGURES_CLIENT_KEY'],
+        credentials: ENV['APPFIGURES_CREDENTIALS']
+      }
+    end
 
     def valid_client?
       @client_key.nil? == false && @credentials.nil? == false

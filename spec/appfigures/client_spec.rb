@@ -3,11 +3,16 @@
 require 'spec_helper'
 
 describe AppFigures::Client do
-  context '.new' do
+  context '.new with env vars' do
 
     before do
-      ENV['client_key'] = 'abcd'
-      ENV['credentials'] = '1234'
+      ENV['APPFIGURES_CLIENT_KEY'] = 'abc'
+      ENV['APPFIGURES_CREDENTIALS'] = '123'
+    end
+
+    after do
+      ENV.delete('client_key')
+      ENV.delete('credentials')
     end
 
     it 'takes an option hash' do
@@ -24,13 +29,14 @@ describe AppFigures::Client do
       client.credentials.wont_be_nil
 
     end
+  end
+
+  context '.new without env vars' do
 
     it 'throws error if credentials or client key is nil' do
-      ENV.delete('client_key')
-      ENV.delete('credentials')
-
       Proc.new{AppFigures::Client.new()}.must_raise ArgumentError
     end
+
   end
 
   it 'includes httparty' do
