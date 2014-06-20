@@ -5,12 +5,12 @@ require 'spec_helper'
 describe AppFigures::Client do
   context '.products' do
     before do
-      @client = AppFigures::Client.new({client_key: 'exampleclientkey', credentials: 'Basic examplebase64encodedstring'})
+      @client = AppFigures::Client.new({client_key: 'exampleclientkey', credentials: 'examplebase64encodedstring'})
 
 
       @client.class.expects(:get)
         .with('/products/212135374',
-          {headers: {'X-Client-Key' => @client.client_key, 'Authorization' => @client.credentials}})
+          headers: { 'X-Client-Key' => @client.client_key, 'Authorization' => "Basic #{@client.credentials}" })
         .returns({
           id: 212135374,
           name: "Rdio",
@@ -33,21 +33,6 @@ describe AppFigures::Client do
             currency: "USD",
             price: "0.00"
           }
-        })
-
-      @client.class.expects(:get)
-        .with('/products',
-          {headers: {'X-Client-Key' => @client.client_key, 'Authorization' => @client.credentials}})
-        .returns({
-          "downloads"=>1000,
-          "updates"=>2000,
-          "returns"=>0,
-          "net_downloads"=>3000,
-          "promos"=>0,
-          "revenue"=>"0.00",
-          "edu_downloads"=>0,
-          "gifts"=>0,
-          "gift_redemptions"=>0
         })
     end
 
