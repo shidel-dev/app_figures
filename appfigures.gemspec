@@ -1,11 +1,11 @@
 # encoding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'appfigures/version'
+require 'app_figures/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "appfigures"
-  spec.version       = Appfigures::VERSION
+  spec.name          = "app_figures"
+  spec.version       = AppFigures::VERSION
   spec.authors       = ['StyleSeek Engineering']
   spec.email         = ['engineering@styleseek.com']
   spec.summary       = %q{Simple API Client for AppFigures.com}

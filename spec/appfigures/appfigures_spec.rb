@@ -2,19 +2,19 @@
 
 require 'spec_helper'
 
-describe Appfigures do
+describe AppFigures do
   context '.new' do
 
     before do
-      @appfigures = Appfigures.configure do |config|
+      @appfigures = AppFigures.configure do |config|
         config.client_key = 'your client key'
         config.credentials = 'base 64 encoded username:password'
       end
     end
 
     it 'yields Appfigures::Client for configuration' do
-      Appfigures.configure do |config|
-        config.must_be_instance_of Appfigures::Client
+      AppFigures.configure do |config|
+        config.must_be_instance_of AppFigures::Client
       end
     end
 

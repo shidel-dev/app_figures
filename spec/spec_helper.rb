@@ -10,7 +10,7 @@ require 'bundler'
 Bundler.setup(:default, ENV['RACK_ENV'])
 
 #require gem
-require 'appfigures'
+require 'app_figures'
 
 #require BDD Stack
 require 'mocha/mini_test'

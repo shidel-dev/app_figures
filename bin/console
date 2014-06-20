@@ -8,7 +8,7 @@ lib_path = File.expand_path('../../lib', __FILE__)
 require 'bundler'
 Bundler.require(:default, ENV['RACK_ENV'])
 require 'pry'
-require 'appfigures'
+require 'app_figures'
 
 # fire up the ftl drive
 Pry.start
