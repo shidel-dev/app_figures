@@ -45,7 +45,7 @@ This method will return a client object
 
 ####Using AppFigures::Client's initialize method directly
 
-this can take an options has
+this can take an options hash
 
 ```ruby
 AppFigures::Client.new({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
