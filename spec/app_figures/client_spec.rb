@@ -33,7 +33,7 @@ describe AppFigures::Client do
   context '.new without env vars' do
 
     it 'throws error if credentials or client key is nil' do
-      Proc.new{AppFigures::Client.new()}.must_raise ArgumentError
+      Proc.new{ AppFigures::Client.new }.must_raise ArgumentError
     end
 
   end
