@@ -1,5 +1,6 @@
-module AppFigures
+# encoding: utf-8
 
+module AppFigures
   class Client
     attr_accessor :client_key, :credentials
 
@@ -11,6 +12,15 @@ module AppFigures
         @client_key = options[:client_key] || ENV['client_key']
         @credentials = options[:credentials] || ENV['credentials']
       end
+
+      raise(ArgumentError) unless valid_client?
     end
+
+    private
+
+    def valid_client?
+      @client_key.nil? == false && @credentials.nil? == false
+    end
+
   end
 end
