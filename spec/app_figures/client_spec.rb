@@ -38,11 +38,7 @@ describe AppFigures::Client do
 
   end
 
-  it 'includes httparty' do
-    AppFigures::Client.included_modules.must_include HTTParty
-  end
-
-  it 'has a base url for appfigures' do
+  it 'has a base url' do
     client = AppFigures::Client.new({client_key: 'my client key', credentials: "my credentials"})
 
     client.class.base_uri.must_equal 'https://api.appfigures.com'
