@@ -3,6 +3,11 @@
 require 'spec_helper'
 
 describe AppFigures::Client do
+
+  it 'includes httparty' do
+    AppFigures::Client.included_modules.must_include HTTParty
+  end
+
   context '.new' do
 
     it 'takes an option hash' do
