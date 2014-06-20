@@ -22,34 +22,27 @@ Or install it yourself as:
 ## Usage
 ###configuration
 
-Your authentication information can be configured in three different ways.
+Your authentication information can be configured in two different ways.
 
 ####ENV variables
-This is the preferred method as it keeps your config details in a private file. When using this method you can use a shortcut for creating a new client.
+This is the preferred method as it keeps your config details in a private file.
+
+two ENV vars are needed
+'APPFIGURES_CLIENT_KEY' -- your client key
+'APPFIGURES_CREDENTIALS' -- base 64 encoded username:password prefixed with Basic.
+Example: ENV['APPFIGURES_CREDENTIALS'] = 'Basic j28fhj93nvbd9ab=='
 
 ```ruby
 AppFigures.create_client
 ```
 This method will return a client object.
 
-####Configure block
+####Using an option hash
+
+AppFigures.client can also take an options hash with your authentication information.
 
 ```ruby
-client = AppFigures.configure do |config|
-  config.client_key = 'your client key'
-  config.credentials = 'base 64 encoded username:password'
-end
-
-```
-
-This method will return a client object.
-
-####Using AppFigures::Client initialize method directly
-
-This can take an options hash with your authentication information.
-
-```ruby
-AppFigures::Client.new({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
+AppFigures.client({credentials: 'base 64 encoded username:password', client_key: 'your client key'})
 ```
 
 ## Contributing
