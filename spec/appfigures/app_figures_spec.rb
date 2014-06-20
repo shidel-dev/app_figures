@@ -12,7 +12,7 @@ describe AppFigures do
       end
     end
 
-    it 'passes block to Appfigures::Client for configuration' do
+    it 'passes instance of Appfigures::Client for configuration' do
       AppFigures.configure do |config|
         config.client_key = 'your client key'
         config.credentials = 'base 64 encoded username:password'
