@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'pry'
+
 module AppFigures
   class Client
     include HTTParty
@@ -19,8 +19,11 @@ module AppFigures
       raise(ArgumentError) unless valid_client?
     end
 
-    def sales
-      self.class.get('/v2/sales', headers: {'X-Client-Key' => @client_key, 'Authorization' => @credentials})
+    def sales(query = {})
+      options = {headers: {'X-Client-Key' => @client_key, 'Authorization' => @credentials}}
+      options = options.merge({query: query}) unless query.empty?
+
+      self.class.get('/v2/sales', options)
     end
 
     private
