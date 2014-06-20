@@ -33,7 +33,7 @@ Two ENV vars are needed:
 Example: ENV['APPFIGURES_CREDENTIALS'] = 'Basic j28fhj93nvbd9ab=='    
 
 ```ruby
-AppFigures.create_client
+AppFigures.client
 ```
 This method will return a client object.
 
