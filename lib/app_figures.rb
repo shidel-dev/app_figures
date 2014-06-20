@@ -8,7 +8,7 @@ module AppFigures
     Client.new({}, &block)
   end
 
-  def self.client
-    Client.new
+  def self.client(options = {})
+    Client.new(options)
   end
 end

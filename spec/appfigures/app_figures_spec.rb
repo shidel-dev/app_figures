@@ -3,21 +3,10 @@
 require 'spec_helper'
 
 describe AppFigures do
-  context '.configure' do
+  context '.client with option hash' do
 
     before do
-      @appfigures = AppFigures.configure do |config|
-        config.client_key = 'your client key'
-        config.credentials = 'base 64 encoded username:password'
-      end
-    end
-
-    it 'passes instance of Appfigures::Client for configuration' do
-      AppFigures.configure do |config|
-        config.client_key = 'your client key'
-        config.credentials = 'base 64 encoded username:password'
-        config.must_be_instance_of AppFigures::Client
-      end
+      @appfigures = AppFigures.client({client_key: 'your client key', credentials:'base 64 encoded username:password' })
     end
 
     it 'can configure a client key' do
@@ -27,17 +16,22 @@ describe AppFigures do
     it 'can configure credentials' do
       @appfigures.credentials.must_equal 'base 64 encoded username:password'
     end
+
   end
 
-  context '.create_client' do
-    it 'inits a new client object with ENV vars' do
+  context '.client with env vars' do
+    before do
       ENV['client_key'] = 'abcd'
       ENV['credentials'] = '1234'
+    end
 
-      AppFigures.create_client.must_be_instance_of AppFigures::Client
-
+    after do
       ENV.delete('client_key')
       ENV.delete('credentials')
+    end
+
+    it 'inits a new client object with ENV vars' do
+      AppFigures.client.must_be_instance_of AppFigures::Client
     end
   end
 end
