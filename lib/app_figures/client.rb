@@ -52,8 +52,13 @@ module AppFigures
     end
 
     def check_configuration!
-      raise ArgumentError, 'client_key is required.' if client_key.nil? or client_key == ''
-      raise ArgumentError, 'credentials is required.' if credentials.nil? or credentials == ''
+      if client_key.nil? or client_key == ''
+        raise Errors::AuthorizationError.new('client_key is required.')
+      end
+
+      if credentials.nil? or credentials == ''
+        raise Errors::AuthorizationError.new('credentials is required.')
+      end
     end
   end
 end
