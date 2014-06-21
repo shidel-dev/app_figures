@@ -1,7 +1,7 @@
 app_figures
 ===========
 
-[![Build Status](https://travis-ci.org/styleseek/app_figures.svg?branch=master)](https://travis-ci.org/styleseek/app_figures)[![Code Climate](https://codeclimate.com/github/styleseek/app_figures.png)](https://codeclimate.com/github/styleseek/app_figures)[![Code Climate](https://codeclimate.com/github/styleseek/app_figures/coverage.png)](https://codeclimate.com/github/styleseek/app_figures)
+[![Build Status](https://travis-ci.org/styleseek/app_figures.svg?branch=master)](https://travis-ci.org/styleseek/app_figures)[![Code Climate](https://codeclimate.com/github/styleseek/app_figures.png)](https://codeclimate.com/github/styleseek/app_figures)
 
 
 Simple API Client for [AppFigures.com](http://appfigures.com/), supports pulling in products and sales from AppFigures with Basic Auth. Send us a pull request and help us expand the support of API this gem covers
