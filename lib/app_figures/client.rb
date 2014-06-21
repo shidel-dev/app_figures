@@ -19,14 +19,12 @@ module AppFigures
 
     def sales(query = {})
       response = self.class.get('/sales', query: query, headers: authorization_headers)
-      handle_request_status(response.code)
-      response
+      handle_request_status(response)
     end
 
     def product_by_id(id)
       response = self.class.get("/products/#{id}", headers: authorization_headers)
-      handle_request_status(response.code)
-      response
+      handle_request_status(response)
     end
 
     def list_products(store = nil)
@@ -37,8 +35,7 @@ module AppFigures
       end
 
       response = self.class.get("/products/mine", query: query, headers: authorization_headers)
-      handle_request_status(response.code)
-      response
+      handle_request_status(response)
     end
 
     private
@@ -67,12 +64,14 @@ module AppFigures
       end
     end
 
-    def handle_request_status(status)
-      case status
+    def handle_request_status(response)
+      case response.code
         when 404
           raise Errors::NotFound.new
         when 500...600
-          raise Errors::BadRequest.new(status)
+          raise Errors::BadRequest.new(response.code)
+        else
+          response
       end
     end
   end
