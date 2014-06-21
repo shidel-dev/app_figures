@@ -18,11 +18,15 @@ module AppFigures
     end
 
     def sales(query = {})
-      self.class.get('/sales', query: query, headers: authorization_headers)
+      response = self.class.get('/sales', query: query, headers: authorization_headers)
+      handle_request_status(response.code)
+      response
     end
 
     def product_by_id(id)
-      self.class.get("/products/#{id}", headers: authorization_headers)
+      response = self.class.get("/products/#{id}", headers: authorization_headers)
+      handle_request_status(response.code)
+      response
     end
 
     def list_products(store = nil)

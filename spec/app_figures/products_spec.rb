@@ -16,7 +16,7 @@ describe AppFigures::Client do
             'X-Client-Key' => @client.client_key,
             'Authorization' => "Basic #{@client.credentials}"
           }
-        )
+        ).returns(Response.ok)
 
       @client.product_by_id(212135374)
     end
