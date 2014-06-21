@@ -8,5 +8,20 @@ module AppFigures
         @message = message
       end
     end
+
+    class NotFound < StandardError
+      attr_reader :code
+      def initialize
+        @code = 404
+      end
+    end
+
+    class BadRequest < StandardError
+      attr_reader :code
+
+      def initialize(code)
+        @code = code
+      end
+    end
   end
 end
