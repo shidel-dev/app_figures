@@ -26,8 +26,8 @@ describe AppFigures do
     end
 
     after do
-      ENV.delete('client_key')
-      ENV.delete('credentials')
+      ENV.delete('APPFIGURES_CLIENT_KEY')
+      ENV.delete('APPFIGURES_CREDENTIALS')
     end
 
     it 'inits a new client object with ENV vars' do
