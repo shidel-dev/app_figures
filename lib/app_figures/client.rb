@@ -25,6 +25,16 @@ module AppFigures
       self.class.get("/products/#{id}", headers: authorization_headers)
     end
 
+    def list_products(store = nil)
+      if store
+        query = {store: store}
+      else
+        query = {}
+      end
+
+      self.class.get("/products/mine", query: query, headers: authorization_headers)
+    end
+
     private
 
     def authorization_headers
