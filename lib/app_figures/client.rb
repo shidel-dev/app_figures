@@ -32,7 +32,9 @@ module AppFigures
         query = {}
       end
 
-      self.class.get("/products/mine", query: query, headers: authorization_headers)
+      response = self.class.get("/products/mine", query: query, headers: authorization_headers)
+      handle_request_status(response.code)
+      response
     end
 
     private
@@ -58,6 +60,15 @@ module AppFigures
 
       if credentials.nil? or credentials == ''
         raise Errors::AuthorizationError.new('credentials is required.')
+      end
+    end
+
+    def handle_request_status(status)
+      case status
+        when 404
+          raise Errors::NotFound.new
+        when 500...600
+          raise Errors::BadRequest.new(status)
       end
     end
   end
