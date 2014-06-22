@@ -77,8 +77,53 @@ Example:
 
 ```ruby
 client = AppFigures.client
-products = client.products
-# => ...
+my_products = client.list_products
+=> {"397821346"=>
+  {"id"=>397821346,
+   "name"=>"Example app",
+   "developer"=>"Example App maker",
+   "icon"=>
+    "http:/icon.com/icon.png",
+   "vendor_identifier"=>"763309467",
+   "ref_no"=>7634478,
+   "sku"=>"EXAMPLE",
+   "package_name"=>nil,
+   "store_id"=>1,
+   "store"=>"apple",
+   "storefront"=>"apple:ios",
+   "release_date"=>"2013-14-02T05:00:00-05:00",
+   "added_date"=>"2013-14-03T20:17:23-05:00",
+   "updated_date"=>"2014-08-20T02:52:22-04:00",
+   "version"=>"3.0.1",
+   "source"=>
+    {"external_account_id"=>76435,
+     "added_timestamp"=>"2014-06-06T00:00:00",
+     "active"=>true,
+     "hidden"=>false,
+     "type"=>"own"},
+   "type"=>"app",
+   "devices"=>["Handheld", "Tablet"],
+   "children"=>[],
+   "features"=>[],
+   "parent_id"=>nil,
+   "price"=>{"currency"=>"USD", "price"=>"0.00"}},
+ "400718594467"=>
+  {"id"=>40071854567,
+   "name"=>"EXAMPLE app 2",
+   "developer"=>"Example app maker",...}}
+   
+   
+   
+one_product = client.product_by_id("397821346")
+=> {"id"=>397821346,
+ "name"=>"Example app",
+ "developer"=>"Example app maker",
+ "icon"=>
+  "http:/icon.com/icon.png"
+ "vendor_identifier"=>"763309467",
+ "ref_no"=>7634478,
+ "sku"=>"Example",....}
+
 ```
 
 #### Sales
