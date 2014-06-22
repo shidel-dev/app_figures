@@ -133,7 +133,15 @@ Example:
 ```ruby
 client = AppFigures.client
 sales = client.sales
-# => ...
+=> {"downloads"=>4589,
+ "updates"=>11234,
+ "returns"=>0,
+ "net_downloads"=>4589,
+ "promos"=>0,
+ "revenue"=>"0.00",
+ "edu_downloads"=>0,
+ "gifts"=>0,
+ "gift_redemptions"=>0}
 ```
 
 ## Contributing
