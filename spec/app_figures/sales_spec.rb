@@ -5,7 +5,7 @@ require 'spec_helper'
 describe AppFigures::Client do
   context '.sales' do
     before do
-      @client = AppFigures::Client.new({client_key: 'exampleclientkey', credentials: 'examplebase64encodedstring'})
+      @client = AppFigures::Client.new(client_key: 'exampleclientkey', credentials: 'examplebase64encodedstring')
       @headers = { 'X-Client-Key' => @client.client_key, 'Authorization' => "Basic #{@client.credentials}" }
     end
 
