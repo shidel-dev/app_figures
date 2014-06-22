@@ -73,7 +73,7 @@ Passed in options will take precedence over the ENV vars.
 
 #### Products
 
-```list_products``` will give all registered products(can be filtered by store) see: http://docs.appfigures.com/products#Listing_all_of_your_products
+```list_products``` will give all registered products (can be filtered by store) see: http://docs.appfigures.com/products#Listing_all_of_your_products
 
 ```product_by_id``` will give one registered product by it's appfigures id see: http://docs.appfigures.com/products#Getting_a_product_by_its_id
 
