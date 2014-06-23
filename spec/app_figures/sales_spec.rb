@@ -29,7 +29,7 @@ describe AppFigures::Client do
 
     it 'raises error for 403 forbidden error' do
       options = { query: { start_date: '2012-01-01' }, headers: @headers }
-      @client.class.expects(:get).with('/sales', options).returns(Response.bad)
+      @client.class.expects(:get).with('/sales', options).returns(Response.forbidden)
       Proc.new { @client.sales(start_date: '2012-01-01') }.must_raise AppFigures::Errors::Forbidden
     end
   end
