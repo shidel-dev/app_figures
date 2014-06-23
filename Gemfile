@@ -23,5 +23,4 @@ group :test do
   gem 'minitest-spec-context', require: false
   gem 'minitest-reporters', require: false
   gem 'mocha', require: false
-  gem 'vcr', require: false
 end
