@@ -27,11 +27,9 @@ module AppFigures
       handle_request_status(response)
     end
 
-    def list_products(store = nil)
+    def list_products(store = nil, query = {})
       if store
-        query = {store: store}
-      else
-        query = {}
+        query = query.merge({store: store})
       end
 
       response = self.class.get("/products/mine", query: query, headers: authorization_headers)
