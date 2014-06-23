@@ -3,6 +3,7 @@ app_figures
 
 [![Build Status](https://travis-ci.org/styleseek/app_figures.svg?branch=master)](https://travis-ci.org/styleseek/app_figures)[![Code Climate](https://codeclimate.com/github/styleseek/app_figures.png)](https://codeclimate.com/github/styleseek/app_figures)
 
+
 Simple API Client for [AppFigures.com](http://appfigures.com/), supports pulling in products and sales from AppFigures with Basic Auth. Send us a pull request and help us expand the support of API this gem covers
 
 If this gem doesn't meet your needs, there is an older [appfigures api client](http://rubygems.org/gems/appfigures) that may be better suited, but only supports the AppFigures API `v1`.
@@ -72,12 +73,61 @@ Passed in options will take precedence over the ENV vars.
 
 #### Products
 
-Example:
+```list_products``` will give all registered products (can be filtered by store) see: http://docs.appfigures.com/products#Listing_all_of_your_products
+
+```product_by_id``` will give one registered product by it's appfigures id see: http://docs.appfigures.com/products#Getting_a_product_by_its_id
+
+Examples:
 
 ```ruby
 client = AppFigures.client
-products = client.products
-# => ...
+my_products = client.list_products
+=> {"397821346"=>
+  {"id"=>397821346,
+   "name"=>"Example app",
+   "developer"=>"Example App maker",
+   "icon"=>
+    "http:/icon.com/icon.png",
+   "vendor_identifier"=>"763309467",
+   "ref_no"=>7634478,
+   "sku"=>"EXAMPLE",
+   "package_name"=>nil,
+   "store_id"=>1,
+   "store"=>"apple",
+   "storefront"=>"apple:ios",
+   "release_date"=>"2013-14-02T05:00:00-05:00",
+   "added_date"=>"2013-14-03T20:17:23-05:00",
+   "updated_date"=>"2014-08-20T02:52:22-04:00",
+   "version"=>"3.0.1",
+   "source"=>
+    {"external_account_id"=>76435,
+     "added_timestamp"=>"2014-06-06T00:00:00",
+     "active"=>true,
+     "hidden"=>false,
+     "type"=>"own"},
+   "type"=>"app",
+   "devices"=>["Handheld", "Tablet"],
+   "children"=>[],
+   "features"=>[],
+   "parent_id"=>nil,
+   "price"=>{"currency"=>"USD", "price"=>"0.00"}},
+ "400718594467"=>
+  {"id"=>40071854567,
+   "name"=>"EXAMPLE app 2",
+   "developer"=>"Example app maker",...}}
+   
+   
+   
+one_product = client.product_by_id("397821346")
+=> {"id"=>397821346,
+ "name"=>"Example app",
+ "developer"=>"Example app maker",
+ "icon"=>
+  "http:/icon.com/icon.png"
+ "vendor_identifier"=>"763309467",
+ "ref_no"=>7634478,
+ "sku"=>"Example",....}
+
 ```
 
 #### Sales
@@ -87,7 +137,15 @@ Example:
 ```ruby
 client = AppFigures.client
 sales = client.sales
-# => ...
+=> {"downloads"=>4589,
+ "updates"=>11234,
+ "returns"=>0,
+ "net_downloads"=>4589,
+ "promos"=>0,
+ "revenue"=>"0.00",
+ "edu_downloads"=>0,
+ "gifts"=>0,
+ "gift_redemptions"=>0}
 ```
 
 ## Contributing

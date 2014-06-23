@@ -18,7 +18,24 @@ module AppFigures
     end
 
     def sales(query = {})
-      self.class.get('/sales', query: query, headers: authorization_headers)
+      response = self.class.get('/sales', query: query, headers: authorization_headers)
+      handle_request_status(response)
+    end
+
+    def product_by_id(id)
+      response = self.class.get("/products/#{id}", headers: authorization_headers)
+      handle_request_status(response)
+    end
+
+    def list_products(store = nil)
+      if store
+        query = {store: store}
+      else
+        query = {}
+      end
+
+      response = self.class.get("/products/mine", query: query, headers: authorization_headers)
+      handle_request_status(response)
     end
 
     private
@@ -38,8 +55,24 @@ module AppFigures
     end
 
     def check_configuration!
-      raise ArgumentError, 'client_key is required.' if client_key.nil? or client_key == ''
-      raise ArgumentError, 'credentials is required.' if credentials.nil? or credentials == ''
+      if client_key.nil? or client_key == ''
+        raise Errors::AuthorizationError.new('client_key is required.')
+      end
+
+      if credentials.nil? or credentials == ''
+        raise Errors::AuthorizationError.new('credentials is required.')
+      end
+    end
+
+    def handle_request_status(response)
+      case response.code
+        when 404
+          raise Errors::NotFound.new
+        when 500...600
+          raise Errors::BadRequest.new(response.code)
+        else
+          response
+      end
     end
   end
 end
