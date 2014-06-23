@@ -66,6 +66,8 @@ module AppFigures
 
     def handle_request_status(response)
       case response.code
+        when 403
+          raise Errors::Forbidden.new(response.message)
         when 404
           raise Errors::NotFound.new
         when 500...600
