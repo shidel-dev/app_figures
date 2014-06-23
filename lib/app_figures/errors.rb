@@ -23,5 +23,13 @@ module AppFigures
         @code = code
       end
     end
+
+    class Forbidden < StandardError
+      attr_reader :message
+
+      def initialize(message)
+        @message = message
+      end
+    end
   end
 end
