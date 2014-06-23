@@ -63,6 +63,14 @@ module Response
     response = HTTParty::Response.new(request_object, response_object, parsed_response)
   end
 
+  def self.forbidden
+    response_object = Net::HTTPOK.new('1.1', 403, 'OK')
+    response_object.stubs(:body).returns("{foo:'bar'}")
+    response_object['last-modified'] = last_modified
+    response_object['content-length'] = content_length
+    response = HTTParty::Response.new(request_object, response_object, parsed_response)
+  end
+
 end
 
 #  all systems go
