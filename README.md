@@ -148,6 +148,31 @@ sales = client.sales
  "gift_redemptions"=>0}
 ```
 
+#### External Accounts
+Example:
+```ruby
+client = AppFigures.client
+client.external_accounts
+=> {"7648"=>
+  {"id"=>76348,
+   "account_id"=>89138,
+   "nickname"=>"my nickname",
+   "username"=>"example@email.com",
+   "auto_import"=>true,
+   "store_id"=>2,
+   "store"=>"google_play",
+   "metadata"=>{}},
+ "79034"=>
+  {"id"=>77392,
+   "account_id"=>89138,
+   "nickname"=>"my nickname",
+   "username"=>"example@email.com",
+   "auto_import"=>true,
+   "store_id"=>1,
+   "store"=>"apple",
+   "metadata"=>{"vendor_id"=>78920uy3}}}
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/styleseek/app_figures/fork )
