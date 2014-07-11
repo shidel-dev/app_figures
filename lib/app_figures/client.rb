@@ -32,7 +32,12 @@ module AppFigures
         query = query.merge({store: store})
       end
 
-      response = self.class.get("/products/mine", query: query, headers: authorization_headers)
+      response = self.class.get('/products/mine', query: query, headers: authorization_headers)
+      handle_request_status(response)
+    end
+
+    def external_accounts
+      response = self.class.get('/external_accounts', headers: authorization_headers)
       handle_request_status(response)
     end
 
