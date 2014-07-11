@@ -29,7 +29,7 @@ Or install it globally:
 This gem currently only supports Basic Auth, but still requires you to register your app to get a client key.
 
 1. While logged into AppFigures, visit: https://appfigures.com/developers/keys
-2. Click 'Create a New Client', give it a name, and set your permissions. This gem needs at least `READ` access to "Product Meta Data" and "Private Data".
+2. Click 'Create a New Client', give it a name, and set your permissions. This gem needs at least `READ` access to "Product Meta Data", "Private Data", and "Account". 
 3. Click 'Make me an app' to complete the registration and get yoru client key.
 
 ### Configuration
