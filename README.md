@@ -29,7 +29,7 @@ Or install it globally:
 This gem currently only supports Basic Auth, but still requires you to register your app to get a client key.
 
 1. While logged into AppFigures, visit: https://appfigures.com/developers/keys
-2. Click 'Create a New Client', give it a name, and set your permissions. This gem needs at least `READ` access to "Product Meta Data" and "Private Data".
+2. Click 'Create a New Client', give it a name, and set your permissions. This gem needs at least `READ` access to "Product Meta Data", "Private Data", and "Account". 
 3. Click 'Make me an app' to complete the registration and get yoru client key.
 
 ### Configuration
@@ -146,6 +146,31 @@ sales = client.sales
  "edu_downloads"=>0,
  "gifts"=>0,
  "gift_redemptions"=>0}
+```
+
+#### External Accounts
+Example:
+```ruby
+client = AppFigures.client
+client.external_accounts
+=> {"7648"=>
+  {"id"=>76348,
+   "account_id"=>89138,
+   "nickname"=>"my nickname",
+   "username"=>"example@email.com",
+   "auto_import"=>true,
+   "store_id"=>2,
+   "store"=>"google_play",
+   "metadata"=>{}},
+ "79034"=>
+  {"id"=>77392,
+   "account_id"=>89138,
+   "nickname"=>"my nickname",
+   "username"=>"example@email.com",
+   "auto_import"=>true,
+   "store_id"=>1,
+   "store"=>"apple",
+   "metadata"=>{"vendor_id"=>78920uy3}}}
 ```
 
 ## Contributing
